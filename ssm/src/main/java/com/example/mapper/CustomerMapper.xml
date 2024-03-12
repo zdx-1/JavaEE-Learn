@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybaits.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.CustomerMapper">
+    <select parameterType="com.example.pojo.Customer" resultType="com.example.pojo.Customer" id="findCustomerByNameAndJobs">
+        select * from t_custom where 1=1
+        <if test="username!=null and username!=''">
+            and username like concat('%',#{username},'%')
+        </if>
+        <if test="jobs!=null and username !=''">
+            and jobs=#{jobs}
+        </if>
+    </select>
+</mapper>

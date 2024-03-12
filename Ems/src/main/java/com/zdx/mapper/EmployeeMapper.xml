@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "htttp://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.zdx.mapper.EmployeeMapper">
+    <select id="findAll" resultType="com.zdx.pojo.Employee" resultMap="EmployeeMap">
+        select * from employee where id=1
+    </select>
+    <resultMap type="com.zdx.pojo.Employee" id="EmployeeMap">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age" />
+        <result property="position" column="position"/>
+    </resultMap>
+    <select id="findById" parameterType="int" resultMap="EmployeeMap">
+        select * from employee where id=#{id}
+    </select>
+    <insert id="insert" parameterType="com.zdx.pojo.Employee" >
+        insert into employee(name,age,position) values(#{name},#{age},#{position})
+    </insert>
+    <update id="update" parameterType="com.zdx.pojo.Employee">
+        update employee set name=#{name},age=#{age},position=#{position} where id=#{id}
+    </update>
+</mapper>
