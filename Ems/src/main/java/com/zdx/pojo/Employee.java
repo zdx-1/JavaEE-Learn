@@ -45,6 +45,17 @@ public class Employee {
         this.age = age;
         this.position = position;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", position='" + position + '\'' +
+                '}';
+    }
+
     public Employee() {
     }
     //构造方法

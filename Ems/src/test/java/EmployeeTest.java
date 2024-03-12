@@ -27,26 +27,30 @@ public class EmployeeTest {
         }
     }
     @Test
-    public void testSelectAll(){
-        Employee employee=sqlSession.selectOne("com.zdx.mapper.EmployeeMapper.findAll");
+    public void findById(){
+        int id=3;
+        Employee employee=sqlSession.selectOne("com.zdx.mapper.EmployeeMapper.findById",id);
         System.out.println(employee);
     }
     @Test
-    public void testDelete(){
-        Employee employee=new Employee(1,"张三",20,"manager");
-        sqlSession.delete("com.zdx.mapper.EmployeeMapper.delete",employee);
-    }
-    @Test
-    public void testInsert(){
+    public void add(){
         Employee employee=new Employee(1,"张三",20,"manager");
         sqlSession.insert("com.zdx.mapper.EmployeeMapper.insert",employee);
+        System.out.println("添加成功");
     }
     @Test
-    public void testUpdate(){
+    public void UpdateById(){
         Employee employee=new Employee(1,"张三",20,"manager");
-        sqlSession.update("com.zdx.mapper.EmployeeMapper.update",employee);
-        System.out.println(employee.getName().toString());
+        sqlSession.update("com.zdx.mapper.EmployeeMapper.updateById",employee);
+        System.out.println("更新成功");
     }
+    @Test
+    public void deleteById(){
+        int id=1;
+        sqlSession.delete("com.zdx.mapper.EmployeeMapper.deleteById",id);
+        System.out.println("删除成功");
+    }
+
 
     @After
     public void destroy(){
