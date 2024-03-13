@@ -24,6 +24,7 @@
 
     <mappers>
         <mapper resource="com/zdx/mapper/EmployeeMapper.xml"/>
+        <mapper resource="com/zdx/mapper/EmployeeMapper.xml"/>
     </mappers>
 
 
