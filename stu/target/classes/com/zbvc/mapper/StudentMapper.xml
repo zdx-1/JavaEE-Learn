@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 对应的唯一接口 -->
+<mapper namespace="com.zbvc.mapper.StudentMapper">
+    <!--根据id查询-->
+    <select id="findById" parameterType="int" resultType="com.zbvc.pojo.Student">
+        select * from t_student where id=#{id}
+    </select>
+    <!--查询所有-->
+    <select id="findAll" resultType="com.zbvc.pojo.Student">
+        select * from t_student
+    </select>
+    <!--插入-->
+    <insert id="addStudent" parameterType="com.zbvc.pojo.Student" keyProperty="id" useGeneratedKeys="true">
+       <!--
+        <selectKey keyProperty="sid" resultType="Integer" order="AFTER">
+            select sid from t_student
+        </selectKey>
+        -->
+        insert into t_student (username,jobs,phone) values(#{username},#{jobs},#{phone})
+    </insert>
+    <!--更新-->
+    <update id="updateStudent" parameterType="com.zbvc.pojo.Student">
+        update t_student set username=#{username},jobs=#{jobs},phone=#{phone} where id=#{id}
+    </update>
+    <!--删除-->
+    <delete id="deleteStudent" parameterType="int">
+        delete from t_student where id=#{id}
+    </delete>
+</mapper>

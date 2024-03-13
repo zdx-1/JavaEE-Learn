@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties" />
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${mysql.driver}"/>
+                <property name="url" value="${mysql.url}"/>
+                <property name="username" value="${mysql.username}"/>
+                <property name="password" value="${mysql.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <!--3.接口类方式-->
+        <!--<mapper class="com/zbvc/mapper/StudentMapper"/>-->
+        <!--1.类路径的方式-->
+        <mapper resource="com/zbvc/mapper/StudentMapper.xml"/>
+    </mappers>
+</configuration>
+<!--
+创建MySQL数据库 mybatis
+创建表
+USE mybatis;
+CREATE TABLE t_student(
+   sid INT PRIMARY KEY AUTO_INCREMENT,
+   sname VARCHAR(50),
+   sage INT
+);
+INSERT INTO t_student(sname,sage) VALUES('Lucy',25);
+INSERT INTO t_student(sname,sage) VALUES('Lili',20);
+INSERT INTO t_student(sname,sage) VALUES('Jim',20);
+-->
