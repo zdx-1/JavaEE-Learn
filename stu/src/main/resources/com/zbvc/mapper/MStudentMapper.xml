@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 对应的唯一接口 -->
+<mapper namespace="com.zbvc.mapper.MStudentMapper">
+    <select id="findById" parameterType="int" resultType="com.zbvc.pojo.MStudent">
+        select * from dm_student where id=#{id}
+    </select>
+    <select id="findByAny" parameterType="com.zbvc.pojo.MStudent" resultType="com.zbvc.pojo.MStudent">
+            select * from dm_student where 1=1
+            <if test="id!=null and id!=0">
+                and id=#{id}
+            </if>
+            <if test="name!=null and name!=''">
+                and name like '%${name}%'
+            </if>
+            <if test="major!=null and major!=''">
+                and major like '%${major}%'
+            </if>
+            <if test="sno!=null and sno!=''">
+                and sno like '%${sno}%'
+            </if>
+    </select>
+
+    <select id="findAll" resultType="com.zbvc.pojo.MStudent">
+        select * from dm_student
+    </select>
+
+
+</mapper>

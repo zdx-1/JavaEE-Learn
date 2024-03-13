@@ -20,6 +20,7 @@
         <!--<mapper class="com/zbvc/mapper/StudentMapper"/>-->
         <!--1.类路径的方式-->
         <mapper resource="com/zbvc/mapper/StudentMapper.xml"/>
+        <mapper resource="com/zbvc/mapper/MStudentMapper.xml"/>
     </mappers>
 </configuration>
 <!--

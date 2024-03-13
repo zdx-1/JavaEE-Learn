@@ -1,6 +1,8 @@
 package com.zbvc;
 
+import com.zbvc.mapper.MStudentMapper;
 import com.zbvc.mapper.StudentMapper;
+import com.zbvc.pojo.MStudent;
 import com.zbvc.pojo.Student;
 import com.zbvc.utils.MybatisUtils;
 import org.apache.ibatis.session.SqlSession;
@@ -12,14 +14,21 @@ import java.util.List;
 class StudentMapperTest {
     static SqlSession sqlSession=null;
     static StudentMapper studentMapper=null;
+    static MStudentMapper mstudentMapper=null;
     static{
         sqlSession= MybatisUtils.getSqlSession();
         studentMapper=sqlSession.getMapper(StudentMapper.class);
+        mstudentMapper=sqlSession.getMapper(MStudentMapper.class);
     }
     @Test
     public void findByIdTest(){
         Student student=studentMapper.findById(1);
         System.out.println(student);
+    }
+    @Test
+    public void findByIdTest2(){
+        MStudent mstudent=mstudentMapper.findById(1);
+        System.out.println(mstudent);
     }
 
     @Test

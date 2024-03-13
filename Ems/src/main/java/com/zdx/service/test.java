@@ -1,4 +1,4 @@
-package com.zdx.sesrvice;
+package com.zdx.service;
 
 import com.zdx.pojo.Employee;
 import org.apache.ibatis.io.Resources;
